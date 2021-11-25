@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test
 class MarketingTest {
 
     @Test
-    fun isHotmailAddress() {
+    fun `is Hotmail Address`() {
         assertThat(Marketing.isHotmailAddress(EmailAddress.parse("snarf@hotmail.com"))).isTrue();
         assertThat(Marketing.isHotmailAddress(EmailAddress.parse("snarf@botmail.com"))).isFalse();
         assertThat(Marketing.isHotmailAddress(EmailAddress.parse("hotmail.com@snarf"))).isFalse();
