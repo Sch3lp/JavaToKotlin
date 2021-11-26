@@ -52,7 +52,10 @@ class CustomerTest {
             ),
         )
 
-        assertThat(aDefaultCustomer())
+        assertThat(aDefaultCustomer(
+            firstName = "Edward",
+            lastName = "Nigma"
+        ))
             .withIgnoredFieldsOfTypes(CustomerId::class.java)
             .isEqualTo(expected)
     }

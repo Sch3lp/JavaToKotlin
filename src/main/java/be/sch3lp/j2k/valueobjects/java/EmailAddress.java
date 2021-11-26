@@ -1,11 +1,16 @@
 package be.sch3lp.j2k.valueobjects.java;
 
-import java.util.Objects;
+import be.sch3lp.j2k.common.ValueObject;
 
-final public class EmailAddress {
+final public class EmailAddress extends ValueObject {
 
     private final String localPart;
     private final String domain;
+
+    public EmailAddress(String localPart, String domain) {
+        this.localPart = localPart;
+        this.domain = domain;
+    }
 
     @Override
     public String toString() {
@@ -22,29 +27,11 @@ final public class EmailAddress {
         );
     }
 
-    public EmailAddress(String localPart, String domain) {
-        this.localPart = localPart;
-        this.domain = domain;
-    }
-
     public String getLocalPart() {
         return localPart;
     }
 
     public String getDomain() {
         return domain;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        EmailAddress that = (EmailAddress) o;
-        return Objects.equals(localPart, that.localPart) && Objects.equals(domain, that.domain);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(localPart, domain);
     }
 }

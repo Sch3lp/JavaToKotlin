@@ -8,7 +8,6 @@ data class Book(
     val author: String
 ) {
     init {
-        validateNotNull(isbn, "ISBN")
         validateNotBlank(title, "Title")
         validateNotBlank(subtitle, "Subtitle")
         validateNotBlank(author, "Author")

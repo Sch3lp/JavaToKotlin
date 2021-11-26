@@ -57,7 +57,9 @@ public class CustomerTest {
                         .withZip(zip("9770")))
                 .build();
 
-        assertThat(aDefaultCustomer().build())
+        assertThat(aDefaultCustomer()
+                .withName("Edward", "Nigma")
+                .build())
                 .usingRecursiveComparison(excluding(CustomerId.class))
                 .isEqualTo(expected);
     }

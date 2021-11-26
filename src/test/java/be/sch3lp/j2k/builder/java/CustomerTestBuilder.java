@@ -14,7 +14,7 @@ public class CustomerTestBuilder {
         return someCustomer()
                 .withId(CustomerId.newCustomerId())
                 .withAge(age(52))
-                .withName("Edward", "Nigma")
+                .withName("Joren", "Kennes")
                 .withAddress(aDefaultAddress())
                 ;
     }

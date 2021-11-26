@@ -3,7 +3,7 @@ package be.sch3lp.j2k.nullability.kotlin
 class Controller(private val library: Library) {
 // uncomment this to see what the Java to Kotlin code would look like
 // and check which mistakes it brings to light, thanks to the compiler
-//    fun lend(isbn: String?): BookJson {
+//    fun lend2(isbn: String?): BookJson {
 //        return mapToJson(library.lend(ISBN(isbn)))
 //    }
 //

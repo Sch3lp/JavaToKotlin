@@ -1,14 +1,12 @@
 package be.sch3lp.j2k.nullability.java;
 
-import org.jetbrains.annotations.Nullable;
+import be.sch3lp.j2k.common.ValueObject;
 
-import java.util.Objects;
 import java.util.Optional;
-import java.util.StringJoiner;
 
 import static be.sch3lp.j2k.nullability.java.Validation.*;
 
-public final class Book {
+public final class Book extends ValueObject {
     private final ISBN isbn;
     private final String title;
     private final String subtitle;
@@ -16,7 +14,7 @@ public final class Book {
 
     private Book(final ISBN isbn,
                  final String title,
-                 @Nullable final String subtitle,
+                 final String subtitle,
                  final String author) {
         this.isbn = isbn;
         this.title = title;
@@ -30,7 +28,7 @@ public final class Book {
 
     public static Book book(final ISBN isbn,
                             final String title,
-                            @Nullable final String subtitle,
+                            final String subtitle,
                             final String author) {
         return new Book(isbn, title, subtitle, author);
     }
@@ -61,28 +59,4 @@ public final class Book {
                 subtitleAsString(),
                 author);
     }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Book book = (Book) o;
-        return Objects.equals(isbn, book.isbn) && Objects.equals(title, book.title) && Objects.equals(subtitle, book.subtitle) && Objects.equals(author, book.author);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(isbn, title, subtitle, author);
-    }
-
-    @Override
-    public String toString() {
-        return new StringJoiner(", ", Book.class.getSimpleName() + "[", "]")
-                .add("isbn=" + isbn)
-                .add("title='" + title + "'")
-                .add("subtitle='" + subtitle + "'")
-                .add("author='" + author + "'")
-                .toString();
-    }
-
 }

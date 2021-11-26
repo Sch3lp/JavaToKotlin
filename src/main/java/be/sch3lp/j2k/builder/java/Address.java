@@ -1,11 +1,12 @@
 package be.sch3lp.j2k.builder.java;
 
+import be.sch3lp.j2k.common.ValueObject;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.Objects;
 import java.util.StringJoiner;
 
-public final class Address {
+public final class Address extends ValueObject {
     private final String street;
     private final String city;
     private final Zip zip;
@@ -43,30 +44,6 @@ public final class Address {
     @Nullable
     public String getBus() {
         return bus;
-    }
-
-    @Override
-    public String toString() {
-        return new StringJoiner(", ", Address.class.getSimpleName() + "[", "]")
-                .add("street='" + street + "'")
-                .add("city='" + city + "'")
-                .add("zip=" + zip)
-                .add("houseNumber='" + houseNumber + "'")
-                .add("bus='" + bus + "'")
-                .toString();
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Address address = (Address) o;
-        return Objects.equals(street, address.street) && Objects.equals(city, address.city) && Objects.equals(zip, address.zip) && Objects.equals(houseNumber, address.houseNumber) && Objects.equals(bus, address.bus);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(street, city, zip, houseNumber, bus);
     }
 
     public static class AddressBuilder {

@@ -1,10 +1,13 @@
 package be.sch3lp.j2k.builder.kotlin
 
-internal fun aDefaultCustomer(id: CustomerId = CustomerId(),
-                     name: Name = Name("Edward","Nigma"),
-                     address: Address = aDefaultAddress(),
-                     age: Age = Age(52u)): Customer {
-    return Customer(id,name, address, age)
+internal fun aDefaultCustomer(
+    id: CustomerId = CustomerId(),
+    firstName: String = "Joren",
+    lastName: String = "Kennis",
+    address: Address = aDefaultAddress(),
+    age: Age = Age(52u)
+): Customer {
+    return Customer(id, firstName, lastName, address, age)
 }
 
 internal fun aDefaultAddress(

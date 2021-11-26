@@ -1,9 +1,8 @@
 package be.sch3lp.j2k.builder.java;
 
-import java.util.Objects;
-import java.util.StringJoiner;
+import be.sch3lp.j2k.common.ValueObject;
 
-public final class Customer {
+public final class Customer extends ValueObject {
     private final CustomerId id;
     private final Name name;
     private final Address address;
@@ -34,29 +33,6 @@ public final class Customer {
 
     public Age getAge() {
         return age;
-    }
-
-    @Override
-    public String toString() {
-        return new StringJoiner(", ", Customer.class.getSimpleName() + "[", "]")
-                .add("id=" + id)
-                .add("name=" + name)
-                .add("address=" + address)
-                .add("age=" + age)
-                .toString();
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Customer customer = (Customer) o;
-        return Objects.equals(id, customer.id) && Objects.equals(name, customer.name) && Objects.equals(address, customer.address) && Objects.equals(age, customer.age);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, name, address, age);
     }
 
     public static class CustomerBuilder {
